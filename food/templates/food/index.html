@@ -1,4 +1,5 @@
-{% load static %}
+ {% extends 'food/base.html' %}
+ <!-- {% load static %} -->
 <!DOCTYPE html>
 
 <html>
@@ -8,28 +9,35 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
         <link rel="stylesheet" href="{% static 'food/style.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+       
     </head>
     <body  >
-        <nav> 
-            <label class="logo">Foodsite</label>
-            <div>
-            <ul>
-                <li>
-                    <a href="#">additem</a>
-                </li>
-                <li>
-                    <a href="">delete item</a>
-                </li>
-                 <li>
-                    <a href="">view items</a>
-                 </li>
-            </ul>
-            </div>
-        </nav>
-            <h2>this is just second header</h2>
+        {% block body %}
+        
+    
             {% for item in item_list %}
+            <div class="row">
+                <div class="col-md-3 offset-med-2">
+                    <img src="{{item.item_image}}"  class="card" height="150px"/>
+                </div>
+           
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-2">
+
+                </div>
+
+             </div>
+
+
+
+
+
+
+
             <ul>
                 <li>
                <a href="{% url 'food:detail' item.id %}"> {{item.id}}--{{item.item_name}} </a>
@@ -39,6 +47,7 @@
             
 
             {% endfor %}
+        {% endblock %}
         <script src="" async defer></script>
     </body>
 </html>

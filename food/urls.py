@@ -8,5 +8,8 @@ urlpatterns = [
     path('item/',views.item),
     #food/item_id    could be any key 1,2 ,3
     path('<int:item_id>/',views.detail,name="detail"),
+    # add items
+    path('add',views.create_item,name='create_item'),
+    
     
 ]
